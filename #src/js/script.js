@@ -5,6 +5,7 @@
 @@include("animation.js");
 @@include("accordion.js");
 @@include("progress.js");
+@@include("swiper.js");
 
 
 function testWebP(callback) {

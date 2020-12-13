@@ -6,6 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Gulp</title>
 	<link rel="stylesheet" href="css/style.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
 
 <body>
@@ -14,7 +16,67 @@
 	</div>
 	@@include("_header.html")
 	<main>
+		<section class="section__hello section">
+			<div class="container__hello container">
+				<div class="container__header">
+					<div class="container__title">
+						Перед просмотром, предлагаю посмотреть пару мемных фоток
+					</div>
+				</div>
+				<div class="swiper-container">
+					<!-- Additional required wrapper -->
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<div class="swiper-slide">
+							<img src="img/six.jpg" alt="">
+							<p>промолчу</p>
+						</div>
+						<div class="swiper-slide">
+							<img src="img/five.jpg" alt="">
+							<p>не ставьте и на мне крестик</p>
+						</div>
+						<div class="swiper-slide">
+							<img src="img/one.jpg" alt="">
+							<p>))</p>
+						</div>
+						<div class="swiper-slide">
+							<img src="img/two.jpg" alt="">
+							<p>лучше вам не ставить плохую оценку</p>
+						</div>
+						<div class="swiper-slide">
+							<img src="img/three.jpg" alt="">
+							<p>промолчу</p>
+						</div>
+						<div class="swiper-slide">
+							<img src="img/four.jpg" alt="">
+							<p>промолчу</p>
+						</div>
+						<!-- <div class="swiper-slide"><img src="img/five.jpg" alt=""></div> -->
 
+						<!-- <div class="swiper-slide"><img src="img/one.jpg" alt=""></div>
+						<div class="swiper-slide"><img src="img/two.jpg" alt=""></div>
+						<div class="swiper-slide"><img src="img/three.jpg" alt=""></div>
+						<div class="swiper-slide"><img src="img/four.jpg" alt=""></div> -->
+
+					</div>
+					<!-- If we need pagination -->
+					<div class="swiper-pagination"></div>
+
+					<!-- If we need navigation buttons -->
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+
+					<!-- If we need scrollbar -->
+
+				</div>
+			</div>
+		</section>
+		<section class="section__first-task section">
+			<div class="container__first-task">
+				<div class="container__title">Первое задание</div>
+				<div class="container__body"></div>
+			</div>
+		</section>
 	</main>
 
 	@@include("_footer.html")
@@ -25,6 +87,8 @@
 
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js
 	"></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 	<!-- <script src="js/slick.min.js"></script> -->
 	<script src="js/script.min.js"></script>
