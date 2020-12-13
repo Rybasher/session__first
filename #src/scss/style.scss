@@ -1,0 +1,33 @@
+@import "mixins";
+@import "fonts";
+@import "null";
+@import "header";
+@import "classes";
+@import "footer";
+@import "progress";
+@import "burger";
+
+body.lock {
+	overflow-y: hidden;
+}
+.wrapper {
+	overflow: hidden;
+	min-height: 100%;
+}
+
+// picture {
+// 	width: 400px;
+// 	height: 500px;
+// }
+// img {
+// 	width: 100%;
+// 	height: 100%;
+// }
+
+// ================ MAIN SCREEN ===========================
+html {
+	overflow-x: hidden;
+}
+main {
+	height: 20000px;
+}
