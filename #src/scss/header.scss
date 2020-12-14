@@ -155,6 +155,18 @@
 						color: black;
 					}
 				}
+				.li::after {
+					content: "";
+					width: 0;
+					height: 4px;
+					background: #000;
+					margin: 20px 0 5px 0;
+					display: block;
+				}
+				.li:hover::after {
+					width: 100%;
+					transition: all 0.3s ease 0s;
+				}
 			}
 			.secretar {
 				position: absolute;
