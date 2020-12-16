@@ -75,56 +75,81 @@
 			<div class="container__first-task container">
 				<div class="container__header">
 					<div class="container__title">Первое задание</div>
+					<p>Поставьте оценку студента по каждому предмету и галочку, если предемет сдан вовремя</p>
+					<small>A-отлично, B-хорошо, C-удовлетворительно, D-сойдет, F-2</small>
+					<p>Стандартная стипендия 1000грн</p>
 				</div>
 				<div class="container__body">
 					<form action="">
-						<div class="input-data">
-							<p>География</p>
-							<div class="inputs"><input type="text" required>
-								<label for="">
-									Оценка
-								</label>
+						<div class="input__data">
+							<div class="container__input">
+								<p>Экстр прогр</p>
+								<input type="text" class="rating" id="extr" placeholder="Оценка">
+								<input type="checkbox" class="time">
 							</div>
+							<div class="message">
+								<p class="numbers">number</p>
+								<p class="string">Оценнка введена</p>
 
-						</div>
-						<div class="input-data">
-							<p>География</p>
-							<div class="inputs"><input type="text" required>
-								<label for="">
-									Оценка
-								</label>
 							</div>
-
 						</div>
-						<div class="input-data">
-							<p>География</p>
-							<div class="inputs"><input type="text" required>
-								<label for="">
-									Оценка
-								</label>
+						<div class="input__data">
+							<div class="container__input">
+								<p>Экстр прогр</p>
+								<input type="text" class="rating" id="extr" placeholder="Оценка">
+								<input type="checkbox" class="time">
 							</div>
+							<div class="message">
+								<p class="numbers">number</p>
+								<p class="string">Оценнка введена</p>
 
-						</div>
-						<div class="input-data">
-							<p>География</p>
-							<div class="inputs"><input type="text" required>
-								<label for="">
-									Оценка
-								</label>
 							</div>
-
 						</div>
-						<div class="input-data">
-							<p>География</p>
-							<div class="inputs"><input type="text" required>
-								<label for="">
-									Оценка
-								</label>
+						<div class="input__data">
+							<div class="container__input">
+								<p>Экстр прогр</p>
+								<input type="text" class="rating" id="extr" placeholder="Оценка">
+								<input type="checkbox" class="time">
 							</div>
+							<div class="message">
+								<p class="numbers">number</p>
+								<p class="string">Оценнка введена</p>
 
+							</div>
 						</div>
-						<button>Узнать</button>
+						<div class="input__data">
+							<div class="container__input">
+								<p>Экстр прогр</p>
+								<input type="text" class="rating" id="extr" placeholder="Оценка">
+								<input type="checkbox" class="time">
+							</div>
+							<div class="message">
+								<p class="numbers">number</p>
+								<p class="string">Оценнка введена</p>
+							</div>
+						</div>
+						<div class="input__data">
+							<div class="container__input">
+								<p>Экстр прогр</p>
+								<input type="text" class="rating" id="extr" placeholder="Оценка">
+								<input type="checkbox" class="time">
+							</div>
+							<div class="message">
+								<p class="numbers">number</p>
+								<p class="string">Оценнка введена</p>
+
+							</div>
+						</div>
+						<div class="full__message">
+							<p class="full__message-text" style="color: red;">Оценка введена неправильно.</p>
+						</div>
+						<button class="submit">Проверить</button>
+
 					</form>
+					<div class="result">
+						<p class="result__text"></p>
+					</div>
+
 				</div>
 			</div>
 		</section>
