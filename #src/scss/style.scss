@@ -17,12 +17,15 @@ body.lock {
 	overflow: hidden;
 	min-height: 100%;
 }
+
 .section {
 	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	padding: 40px 140px;
+	// border: 1px solid #000;
+	// overflow-x: hidden;
 	@include tablet {
 		padding: 20px 90px;
 	}
@@ -142,12 +145,16 @@ main {
 			align-items: center;
 			justify-content: center;
 			// border: 1px solid #000;
+			position: relative;
+			overflow: hidden;
+
 			form {
 				width: 600px;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
+				// overflow-x: hidden;
 				@include tablet {
 					width: 500px;
 				}
@@ -278,6 +285,45 @@ main {
 				font-size: 20px;
 				font-family: Roboto;
 				color: black;
+			}
+		}
+		.secretar {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			height: calc(100px + 200 * (100vw / 1600));
+			width: calc(100px + 150 * (100vw / 1600));
+			.secreatar__container {
+				width: 100%;
+				height: 100%;
+				position: relative;
+				.sec__img {
+					position: absolute;
+					top: 0;
+					left: 1000px;
+					width: 100%;
+					height: 100%;
+				}
+				.sec__img.active {
+					left: 0;
+					transition: all 0.6s ease 0s;
+				}
+				p {
+					position: absolute;
+					top: 50%;
+					left: 3000px;
+					width: 100%;
+					transform: translate(-25%, -50%);
+					font-size: 30px;
+					font-size: calc(15px + 15 * (100vw / 1600));
+					color: white;
+					font-family: "Pacifico", cursive;
+					text-shadow: 2px 2px black;
+				}
+				p.active {
+					left: 50%;
+					transition: all 0.9s ease 0s;
+				}
 			}
 		}
 	}

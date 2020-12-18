@@ -175,6 +175,12 @@ var swiper = new Swiper('.swiper-container', {
 	},
 	
  });;
+
+/** 
+ * В данном файле выполнено первое задание по Экстримальному программированию
+ * Изначально создаем переменные и добавляем в них значения с которыми потом будем работать
+ *
+ * */
 let datas = document.querySelectorAll('.input__data');
 let input = document.querySelectorAll('.rating');
 let messageBox = document.querySelectorAll('.message');
@@ -182,18 +188,34 @@ let messageBox = document.querySelectorAll('.message');
 
 let submit = document.querySelector('.submit');
 
+/** 
+ * Далее мы проходим по всем элементам в массиве datas 
+ * */
+
 for (let i = 0; i < datas.length; i++) {
 
-	datas[i].addEventListener('click', function() {
-		// console.log(this);
-		
+	/** 
+	 * каждому элементу массива добавляем событие
+	 * **/
+	datas[i].addEventListener('click', function() {		
+		/** 
+	 * после, в каждом элементе проходим по блокам с сообщениями и задаем свойство 
+	 * display: none
+	 * */
 		for (let i = 0; i < messageBox.length; i++) {
-			messageBox[i].style.display = "none";
-			
+			messageBox[i].style.display = "none";	
 		}
-		// this.querySelector('.message').style.display = "block";
 
 	})
+	/** 
+	 * Далее для всех инпутов задаем событие на ввод значений 
+ 	 * @param {Array} datas - массив блоков с полями для вводимых оценок
+	 * 
+	 * @example
+	 * inputs.addEventListener('keyup', function(){
+	 * 	действия
+	 * }
+	 * */
 	datas[i].querySelector('.rating').addEventListener('keyup', function(){
 		let val = this.value;
 		// console.log(val);
@@ -201,19 +223,30 @@ for (let i = 0; i < datas.length; i++) {
 		let symbols = RegExp("[AaBbCcDdFf]");
 
 		this.parentNode.parentNode.children[1].style.display = "block";
-		
+	  /**
+		*  Так как у нас много блоков с одинаковыми классов
+		* C помощью parents and clinds мы указываем, что обращаемся
+		* к ребенку необходимого элемента
+		* @example 
+		* element.parentNode.parentNode.children[1].children[0];
+		*/
+		let message_class =  this.parentNode.parentNode.children[1].children[0];
+
+		/**
+		 * с помощью регулярных выражений мы делаем валидацию наших полей
+		 */
 			if (val.match(number)) {
 				
-				this.parentNode.parentNode.children[1].children[0].classList.add("error");	
-				this.parentNode.parentNode.children[1].children[0].classList.remove("valid");
+				message_class.classList.add("error");	
+				message_class.classList.remove("valid");
 				this.parentNode.children[1].style.borderBottom = "2px solid red";
 
 			}
 			else{
 				// console.log(this);
 
-				this.parentNode.parentNode.children[1].children[0].classList.remove("error");	
-				this.parentNode.parentNode.children[1].children[0].classList.add("valid");	
+				message_class.classList.remove("error");	
+				message_class.classList.add("valid");	
 				this.parentNode.children[1].style.borderBottom = "2px solid green";
 
 
@@ -236,13 +269,26 @@ for (let i = 0; i < datas.length; i++) {
 			
 	});	
 }
-
+/** 
+	 * Далее мы останавливаем перезагрузку страницы для выполнения определенных действий
+	 * @example
+	 * 
+	 * button.addEventListener('click', function(e){
+	 * e.preventDefault();
+	 * ...дальнейшие действия...
+	 * }
+	 * */
 submit.addEventListener('click', function(e){
 	e.preventDefault();
 	let numbers = document.querySelectorAll('.numbers');
 	let string = document.querySelectorAll('.string');
 	let answer = true;
 	let arr = []
+	/**
+	 * далее прверяем нет ли выводимых ошибок, для этого просто прверяем наличие определённых классов
+	 * @param {Array} - массив блоков со знчением цифр
+	 * @returns {Array} - массив ответов
+	 */
 	for (let i = 0; i < numbers.length; i++) {
 		for (let j = 0; j < string.length; j++) {
 			if (numbers[i].classList.contains('error') && string[j].classList.contains('error')) {			
@@ -285,7 +331,22 @@ function result() {
 	for (let i = 0; i < rating_text.length; i++) {
 		rating.push(rating_text[i].value.toUpperCase());
 		
+		
 	}
+	let uniqRating = new Set(rating);
+
+	let newRating = [...uniqRating];
+
+	for (let i = 0; i < newRating.length; i++) {
+		arr_create(newRating[i], newRating);
+		
+	}
+	/**
+	 * Далее прверяем количество определённых оценок
+	 * 
+	 */
+
+
 	let a = rating.filter(function(rat) {
 		return rat === "A";
 	})
@@ -301,11 +362,15 @@ function result() {
 	let f = rating.filter(function(rat) {
 		return rat === "F";
 	})
+	
 	if (c.length >= 1 || d.length >= 1 || f.length >= 1) {
 		document.querySelector('.result__text').innerHTML = "Ученик не будет получать стипендию";
 
 	}
+	
 	else {
+		let andr_img = document.querySelector('.sec__img');
+		let andr_p = document.querySelector('.secreatar__container>p');
 		if (a.length === rating.length) {
 			sum = sum + (sum * 0.5);
 			let checked = [];
@@ -322,6 +387,9 @@ function result() {
 			}
 			else{
 				document.querySelector('.result__text').innerHTML = "Стипендия = " + sum.toString();
+				andr_img.classList.add("active");
+				andr_p.classList.add("active");
+				
 	
 			}
 	
@@ -342,6 +410,8 @@ function result() {
 			else{
 				sum = 1000;	
 				document.querySelector('.result__text').innerHTML = "Стипендия = " + sum.toString();
+				
+				
 	
 			}
 	
@@ -363,12 +433,21 @@ function result() {
 			else{
 				
 				document.querySelector('.result__text').innerHTML = "Стипендия = " + sum.toString();
-	
+				
+				
 			}
 		}
 	}	
 	
 	
+}
+
+
+
+function arr_create(letter, mas){
+	let a = mas.filter(function(rat) {
+		return rat === letter.toString().toUpperCase();
+	})
 }
 ;
 

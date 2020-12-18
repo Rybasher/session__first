@@ -185,11 +185,15 @@ function result() {
 	let f = rating.filter(function(rat) {
 		return rat === "F";
 	})
+	
 	if (c.length >= 1 || d.length >= 1 || f.length >= 1) {
 		document.querySelector('.result__text').innerHTML = "Ученик не будет получать стипендию";
 
 	}
+	
 	else {
+		let andr_img = document.querySelector('.sec__img');
+		let andr_p = document.querySelector('.secreatar__container>p');
 		if (a.length === rating.length) {
 			sum = sum + (sum * 0.5);
 			let checked = [];
@@ -206,6 +210,9 @@ function result() {
 			}
 			else{
 				document.querySelector('.result__text').innerHTML = "Стипендия = " + sum.toString();
+				andr_img.classList.add("active");
+				andr_p.classList.add("active");
+				
 	
 			}
 	
@@ -226,6 +233,8 @@ function result() {
 			else{
 				sum = 1000;	
 				document.querySelector('.result__text').innerHTML = "Стипендия = " + sum.toString();
+				
+				
 	
 			}
 	
@@ -247,7 +256,8 @@ function result() {
 			else{
 				
 				document.querySelector('.result__text').innerHTML = "Стипендия = " + sum.toString();
-	
+				
+				
 			}
 		}
 	}	
