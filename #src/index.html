@@ -8,6 +8,17 @@
 	<link rel="stylesheet" href="css/style.min.css">
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+	<script>
+		// включаем режим тестирования в стиле BDD
+		mocha.setup('bdd');
+	</script>
+	<!-- добавим chai -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+	<script>
+		// chai предоставляет большое количество функций. Объявим assert глобально
+		let assert = chai.assert;
+	</script>
 </head>
 
 <body>
@@ -85,10 +96,10 @@
 							<div class="container__input">
 								<p>Экстр прогр</p>
 								<input type="text" class="rating" id="extr" placeholder="Оценка">
-								<input type="checkbox" class="time">
+								<input type="checkbox" class="time" checked="checked">
 							</div>
 							<div class="message">
-								<p class="numbers">number</p>
+								<p class="numbers">Цифры</p>
 								<p class="string">Оценнка введена</p>
 
 							</div>
@@ -97,10 +108,10 @@
 							<div class="container__input">
 								<p>Экстр прогр</p>
 								<input type="text" class="rating" id="extr" placeholder="Оценка">
-								<input type="checkbox" class="time">
+								<input type="checkbox" class="time" checked="checked">
 							</div>
 							<div class="message">
-								<p class="numbers">number</p>
+								<p class="numbers">Цифры</p>
 								<p class="string">Оценнка введена</p>
 
 							</div>
@@ -109,10 +120,10 @@
 							<div class="container__input">
 								<p>Экстр прогр</p>
 								<input type="text" class="rating" id="extr" placeholder="Оценка">
-								<input type="checkbox" class="time">
+								<input type="checkbox" class="time" checked="checked">
 							</div>
 							<div class="message">
-								<p class="numbers">number</p>
+								<p class="numbers">Цифры</p>
 								<p class="string">Оценнка введена</p>
 
 							</div>
@@ -121,10 +132,10 @@
 							<div class="container__input">
 								<p>Экстр прогр</p>
 								<input type="text" class="rating" id="extr" placeholder="Оценка">
-								<input type="checkbox" class="time">
+								<input type="checkbox" class="time" checked="checked">
 							</div>
 							<div class="message">
-								<p class="numbers">number</p>
+								<p class="numbers">Цифры</p>
 								<p class="string">Оценнка введена</p>
 							</div>
 						</div>
@@ -132,10 +143,10 @@
 							<div class="container__input">
 								<p>Экстр прогр</p>
 								<input type="text" class="rating" id="extr" placeholder="Оценка">
-								<input type="checkbox" class="time">
+								<input type="checkbox" class="time" checked="checked">
 							</div>
 							<div class="message">
-								<p class="numbers">number</p>
+								<p class="numbers">Цифры</p>
 								<p class="string">Оценнка введена</p>
 
 							</div>
@@ -149,6 +160,13 @@
 					<div class="result">
 						<p class="result__text"></p>
 					</div>
+					<script>
+
+					</script>
+					<div class="container__title">
+						Тесты
+					</div>
+					<div id="mocha"></div>
 
 				</div>
 			</div>
@@ -160,7 +178,9 @@
 
 
 
-
+	<script>
+		mocha.run();
+	</script>
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js
 	"></script>
 	<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
@@ -168,9 +188,8 @@
 	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 	<!-- <script src="js/slick.min.js"></script> -->
 	<script src="js/script.min.js"></script>
-	<script>
 
-	</script>
+
 </body>
 
 </html>

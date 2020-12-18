@@ -582,6 +582,10 @@ h6 {
   transition: all 0s ease;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body.lock {
   overflow-y: hidden;
 }
@@ -695,10 +699,13 @@ html {
   margin-top: 20px;
   font-size: 20px;
   font-weight: 500;
+  text-align: center;
 }
 
 .section__first-task .container__first-task .container__header small {
   margin-top: 20px;
+  font-size: 15px;
+  text-align: center;
 }
 
 .section__first-task .container__first-task .container__body {
@@ -786,7 +793,7 @@ html {
   display: none;
   width: 100%;
   height: 50px;
-  border: 1px solid #000;
+  background: #eeeeee;
   padding: 10px 10px;
   margin-top: 10px;
 }
@@ -847,7 +854,7 @@ html {
 
 .section__first-task .container__first-task .container__body form .full__message {
   width: 100%;
-  border: 1px solid #000;
+  background: #eeeeee;
   padding: 10px 10px;
   margin-top: 10px;
   display: none;
@@ -864,12 +871,13 @@ html {
 
 .section__first-task .container__first-task .container__body .result {
   width: 100%;
-  border: 1px solid #000;
+  background: #eeeeee;
   height: 40px;
   padding: 10px;
   margin-top: 10px;
   font-size: 20px;
   font-family: Roboto;
+  color: black;
 }
 
 @media (max-width: 768px) {
@@ -883,6 +891,10 @@ html {
 
   .section {
     padding: 20px 90px;
+  }
+
+  .section__first-task .container__first-task .container__body form {
+    width: 500px;
   }
 }
 
@@ -935,6 +947,30 @@ html {
   .menu__icon span:last-child {
     top: 26px;
   }
+
+  .section {
+    padding: 20px 20px;
+  }
+
+  .section__first-task .container__first-task .container__body form {
+    width: 400px;
+  }
+
+  .section__first-task .container__first-task .container__body form .input__data .container__input p {
+    -ms-flex-preferred-size: 30%;
+        flex-basis: 30%;
+  }
+
+  .section__first-task .container__first-task .container__body form .input__data .container__input .rating {
+    -ms-flex-preferred-size: 40%;
+        flex-basis: 40%;
+  }
+}
+
+@media (max-width: 420px) {
+  .section__first-task .container__first-task .container__body form {
+    width: 300px;
+  }
 }
 @supports (-webkit-appearance:none){
 
@@ -957,6 +993,14 @@ html {
 }
 
  @media (max-width: 520px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 420px){
 
 @supports (-webkit-appearance:none){
 

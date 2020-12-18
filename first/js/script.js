@@ -191,37 +191,49 @@ for (let i = 0; i < datas.length; i++) {
 			messageBox[i].style.display = "none";
 			
 		}
-		this.querySelector('.message').style.display = "block";
+		// this.querySelector('.message').style.display = "block";
 
 	})
 	datas[i].querySelector('.rating').addEventListener('keyup', function(){
 		let val = this.value;
 		// console.log(val);
 		let number = /[0-9]/g;
+		let symbols = RegExp("[AaBbCcDdFf]");
+
+		this.parentNode.parentNode.children[1].style.display = "block";
+		
 			if (val.match(number)) {
 				
 				this.parentNode.parentNode.children[1].children[0].classList.add("error");	
-				this.parentNode.parentNode.children[1].children[0].classList.remove("valid");	
+				this.parentNode.parentNode.children[1].children[0].classList.remove("valid");
+				this.parentNode.children[1].style.borderBottom = "2px solid red";
+
 			}
 			else{
 				// console.log(this);
 
 				this.parentNode.parentNode.children[1].children[0].classList.remove("error");	
 				this.parentNode.parentNode.children[1].children[0].classList.add("valid");	
+				this.parentNode.children[1].style.borderBottom = "2px solid green";
+
+
 
 			}
-			if (val.length > 1) {
-				this.parentNode.parentNode.children[1].children[1].classList.add("error");	
-				this.parentNode.parentNode.children[1].children[1].classList.remove("valid");	
-			}
-			else if (val.length < 1) {
-				this.parentNode.parentNode.children[1].children[1].classList.add("error");	
-				this.parentNode.parentNode.children[1].children[1].classList.remove("valid");
-			}
-			else{
+			if (val.length == 1 && val.match(symbols)) {
 				this.parentNode.parentNode.children[1].children[1].classList.remove("error");	
 				this.parentNode.parentNode.children[1].children[1].classList.add("valid");	
+				this.parentNode.children[1].style.borderBottom = "2px solid green";
+
 			}
+			
+			else{
+				this.parentNode.parentNode.children[1].children[1].classList.add("error");	
+				this.parentNode.parentNode.children[1].children[1].classList.remove("valid");	
+				this.parentNode.children[1].style.borderBottom = "2px solid red";
+
+			}
+
+			
 	});	
 }
 
@@ -253,6 +265,7 @@ submit.addEventListener('click', function(e){
 	if (negative.length > 0) {
 		console.log("baddd", negative.length);
 		document.querySelector('.full__message').style.display = "block";
+		document.querySelector('.result__text').innerHTML = "";
 
 	}
 	else{
@@ -288,97 +301,75 @@ function result() {
 	let f = rating.filter(function(rat) {
 		return rat === "F";
 	})
-	if (c.length > 1 || d.length > 1 || f.length > 1) {
+	if (c.length >= 1 || d.length >= 1 || f.length >= 1) {
 		document.querySelector('.result__text').innerHTML = "Ученик не будет получать стипендию";
 
 	}
-	
-	else if (a.length === rating.length) {
-		sum = sum + (sum * 0.5);
-		let checked = []
-		for (let i = 0; i < checks.length; i++) {
-			if (checks[i].checked) {
-				checked.push(this);
+	else {
+		if (a.length === rating.length) {
+			sum = sum + (sum * 0.5);
+			let checked = [];
+			for (let i = 0; i < checks.length; i++) {
+				if (checks[i].checked) {
+					checked.push(this);
+				}
+				
 			}
-			
-		}
-		console.log(checked + "checked");
-		if (checked.length < checks.length) {
-			document.querySelector('.result__text').innerHTML = "Ученик не будет получать стипендию, сессия сдана не вовремя";
-
-		}
-		else{
-			document.querySelector('.result__text').innerHTML = "Стипендия = " + sum.toString();
-
-		}
-
-	}
-	else if (b.length === rating.length) {
-		console.log(b.length + "count b");
-		let checked = []
-		for (let i = 0; i < checks.length; i++) {
-			if (checks[i].checked) {
-				checked.push(this);
-			}
-			
-		}
-		console.log(checked + "checked");
-		if (checked.length < checks.length) {
-			document.querySelector('.result__text').innerHTML = "Ученик не будет получать стипендию, сессия сдана не вовремя";
-
-		}
-		else{
-			sum = 1000;	
-			document.querySelector('.result__text').innerHTML = "Стипендия = " + sum.toString();
-
-		}
-
-	}
-	else if (a.length > 0 && b.length > 0  && c.length == 0 && d.length == 0 || f.length == 0) {
-		sum = sum + (sum * 0.25);
-		let checked = []
-		for (let i = 0; i < checks.length; i++) {
-			if (checks[i].checked) {
-				checked.push(this);
-			}
-			
-		}
-		console.log(checked + "checked");
-		if (checked.length < checks.length) {
-			document.querySelector('.result__text').innerHTML = "Ученик не будет получать стипендию, сессия сдана не вовремя";
-
-		}
-		else{
-			document.querySelector('.result__text').innerHTML = "Стипендия = " + sum.toString();
-
-		}
-	}
+			console.log(checked + "checked");
+			if (checked.length < checks.length) {
+				document.querySelector('.result__text').innerHTML = "Ученик не будет получать стипендию, сессия сдана не вовремя";
 	
+			}
+			else{
+				document.querySelector('.result__text').innerHTML = "Стипендия = " + sum.toString();
 	
-	// if (rating.indexOf('C') != -1 || rating.indexOf('D') != -1 || rating.indexOf('F') != -1){
-	// 	document.querySelector('.result__text').innerHTML = "Ученик не будет получать стипендию";
+			}
+	
+		}
+		else if (b.length === rating.length) {
+			console.log(b.length + "count b");
+			let checked = [];
+			for (let i = 0; i < checks.length; i++) {
+				if (checks[i].checked) {
+					checked.push(this);
+				}
+				
+			}
+			if (checked.length < checks.length) {
+				document.querySelector('.result__text').innerHTML = "Ученик не будет получать стипендию, сессия сдана не вовремя";
+	
+			}
+			else{
+				sum = 1000;	
+				document.querySelector('.result__text').innerHTML = "Стипендия = " + sum.toString();
+	
+			}
+	
+		}
+		else if(a.length >= 1 && b.length >= 1) {
 		
-	// }
-	// else if (rating.indexOf('A') == 5) {
-	// 	sum = sum + (sum * 0.5);
-	// 	document.querySelector('.result__text').innerHTML = "Стипендия = " + str(sum);
-	// }
-	// else{
-	// 	document.querySelector('.result__text').innerHTML = "";
-		
-	// }
-	console.log(a);
-	console.log(b);
-	console.log(c);
-	console.log(d);
-	console.log(f);
-
-
+			let checked = [];
+			sum = sum + (sum * 0.25);	
+			for (let i = 0; i < checks.length; i++) {
+				if (checks[i].checked) {
+					checked.push(this);
+				}
+				
+			}
+			if (checked.length < checks.length) {
+				document.querySelector('.result__text').innerHTML = "Ученик не будет получать стипендию, сессия сдана не вовремя";
+	
+			}
+			else{
+				
+				document.querySelector('.result__text').innerHTML = "Стипендия = " + sum.toString();
+	
+			}
+		}
+	}	
+	
+	
 }
-
-
-
-
 ;
 
 

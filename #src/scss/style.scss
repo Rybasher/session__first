@@ -7,6 +7,9 @@
 @import "progress";
 @import "burger";
 
+html {
+	overflow-x: hidden;
+}
 body.lock {
 	overflow-y: hidden;
 }
@@ -22,6 +25,9 @@ body.lock {
 	padding: 40px 140px;
 	@include tablet {
 		padding: 20px 90px;
+	}
+	@include big_phone {
+		padding: 20px 20px;
 	}
 	// border: 1px solid #000;
 }
@@ -121,9 +127,12 @@ main {
 				margin-top: 20px;
 				font-size: 20px;
 				font-weight: 500;
+				text-align: center;
 			}
 			small {
 				margin-top: 20px;
+				font-size: 15px;
+				text-align: center;
 			}
 		}
 		.container__body {
@@ -132,12 +141,22 @@ main {
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
+			// border: 1px solid #000;
 			form {
 				width: 600px;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
+				@include tablet {
+					width: 500px;
+				}
+				@include big_phone {
+					width: 400px;
+				}
+				@include phone {
+					width: 300px;
+				}
 				// border: 1px solid #000;
 				.input__data {
 					// border: 1px solid #000;
@@ -154,11 +173,17 @@ main {
 						justify-content: space-between;
 						p {
 							flex-basis: 20%;
+							@include big_phone {
+								flex-basis: 30%;
+							}
 						}
 						.rating {
 							flex-basis: 60%;
 							height: 30px;
 							border-bottom: 1px solid #000;
+							@include big_phone {
+								flex-basis: 40%;
+							}
 						}
 						.time {
 							flex-basis: 20%;
@@ -168,7 +193,9 @@ main {
 						display: none;
 						width: 100%;
 						height: 50px;
-						border: 1px solid #000;
+						// border: 1px solid #000;
+						background: rgb(238, 238, 238);
+
 						padding: 10px 10px;
 						margin-top: 10px;
 						.numbers {
@@ -224,7 +251,9 @@ main {
 				// border: 1px solid #000;
 				.full__message {
 					width: 100%;
-					border: 1px solid #000;
+					// border: 1px solid #000;
+					background: rgb(238, 238, 238);
+
 					padding: 10px 10px;
 					margin-top: 10px;
 					display: none;
@@ -240,12 +269,15 @@ main {
 			}
 			.result {
 				width: 100%;
-				border: 1px solid #000;
+				// border: 1px solid #000;
+				background: rgb(238, 238, 238);
+
 				height: 40px;
 				padding: 10px;
 				margin-top: 10px;
 				font-size: 20px;
 				font-family: Roboto;
+				color: black;
 			}
 		}
 	}
