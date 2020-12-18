@@ -436,6 +436,7 @@ html {
 .section__hello .container__hello .swiper-container .swiper-wrapper .swiper-slide {
   max-height: 500px;
   position: relative;
+  padding: 0 0 50% 0;
 }
 
 .section__hello .container__hello .swiper-container .swiper-wrapper .swiper-slide img {
@@ -725,6 +726,10 @@ html {
 
   .section {
     padding: 20px 90px;
+  }
+
+  .section__hello .container__hello .swiper-container .swiper-wrapper .swiper-slide {
+    padding: 0 0 100% 0;
   }
 
   .section__first-task .container__first-task .container__body form {

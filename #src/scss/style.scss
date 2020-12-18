@@ -83,6 +83,10 @@ main {
 				.swiper-slide {
 					max-height: 500px;
 					position: relative;
+					padding: 0 0 50% 0;
+					@include tablet {
+						padding: 0 0 100% 0;
+					}
 					img {
 						width: 100%;
 						height: 100%;
